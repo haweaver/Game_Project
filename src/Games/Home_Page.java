@@ -16,25 +16,15 @@ public class Home_Page{
 		String play_again = "n";
 		int game_number = 0;
 		int game_selection = 0;
-		int players = 0;
-		String game_winner = "";
 		
-		boolean invalid_choice = false;
+		boolean valid_game_number = true;
 		Scanner scan = new Scanner(System.in);
+		Game game = new Game();
 		
 		System.out.println("Welcome to the game Dashboard!");
-		System.out.println("How many players will be playing today?");
-		
-		//Collect # of players
-		players = scan.nextInt();
+		System.out.println();
 		
 		do {
-			
-			if(play_again.equals("y"))
-			{
-				System.out.println("Let's Play another!");
-				System.out.println();
-			}
 			
 			System.out.println("Time for Game #"+(++game_number));
 			System.out.println();
@@ -44,45 +34,36 @@ public class Home_Page{
 				System.out.println("Type the corresponding number to the game you would like to play and click enter.");
 				System.out.println();
 				
-				//Give Menu options for multiple Games
-				System.out.println("1. Dice Game");
-				System.out.println("2. Card Game");
-				//Add Games over time
+				//Call game Menu - outputs the game options
+				game.GameMenu();
 				
 				//Get the desired Game# from the user
 				game_selection = scan.nextInt();
 				
-				// Game Choice Switch Statement
-				switch(game_selection)
-				{
-				   //Available
-				   case 1 :
-					   Dice_Game dice_game = new Dice_Game();
-					   game_winner = dice_game.Play(players);
-					   invalid_choice = false;
-				      break;
-				   //Unavailable
-				   case 2 :
-					   System.out.println("the card game is out of order. Please try another game.");
-					   System.out.println();
-					   invalid_choice = true;
-				      break;
-				   //Invalid Game #
-				   default : 
-				      System.out.println("The number entered does not correspond to any of the options. Please Try again.");
-				      System.out.println();
-				      invalid_choice = true;
-				      break;
-				}
+				//Makes sure the number is a valid game
+				valid_game_number = game.ValidGameNumber(game_selection);
 				
-			}while(invalid_choice == true);
+			}while(valid_game_number == false);
+			
+			//Skip this if user wants same # of players, but still validate # of players
+			//Call SetupGame - receives #players and validates
+			game.SetupGame(game_selection);
 			
 			
-			System.out.println("Congrats to "+game_winner+" for winning game "+game_number);
-			System.out.println();
+			//Call specified game - calls to specific game class
+			game.CallGame(game_selection);
+			
+			//Call the game results method
+			game.GameResults(game_number);
 			
 			System.out.println("Would you like to play another game? (y or n)");
 			play_again = scan.nextLine();
+			
+			if(play_again.equals("y"))
+			{
+				System.out.println("Let's Play another!");
+				System.out.println();
+			}
 			
 			
 		}while(play_again.equals("y"));
