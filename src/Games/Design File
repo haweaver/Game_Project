@@ -1,0 +1,29 @@
+HP = HomePage
+G = Game
+SG = The specified game chosen
+
+HP- 
+Welcome the player
+Asks what they would like to do today
+(IF player chooses to play a game)
+Call Game Class
+G-
+Asks which game is wished to be played
+Validates this game is available - store availability in variables in Game class
+Asks for# of players
+SG-
+Call Specific Games player rules
+G-
+Validates that #players vs rules for players for that game
+Asks & stores player names
+SG-
+Play the game
+Store winners name
+G-
+Stores who won
+Stores how many wins given player has
+Outputs Congratulations to the winner
+Asks if player wants to play another game?
+HP-
+Return to starting screen
+
