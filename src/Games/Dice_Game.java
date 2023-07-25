@@ -76,9 +76,10 @@ public class Dice_Game {
 				high_score = score;
 				leader = i;
 			}
+			
 		}
-		
 		scn.close();
+		
 		
 		
 		System.out.println("Player "+(leader + 1)+" is the winner with a score of "+high_score);

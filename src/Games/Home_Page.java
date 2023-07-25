@@ -22,6 +22,7 @@ public class Home_Page{
 		boolean invalid_choice = false;
 		Scanner scan = new Scanner(System.in);
 		
+		
 		System.out.println("Welcome to the game Dashboard!");
 		System.out.println("How many players will be playing today?");
 		
@@ -51,6 +52,9 @@ public class Home_Page{
 				
 				//Get the desired Game# from the user
 				game_selection = scan.nextInt();
+				
+				//Absorb the /n
+				scan.nextLine();
 				
 				// Game Choice Switch Statement
 				switch(game_selection)
