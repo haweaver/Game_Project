@@ -78,7 +78,6 @@ public class Dice_Game {
 			}
 			
 		}
-		scn.close();
 		
 		
 		

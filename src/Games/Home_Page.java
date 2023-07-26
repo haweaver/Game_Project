@@ -13,7 +13,7 @@ public class Home_Page{
 	
 	public static void main(String[] args) {
 		
-		String play_again = "n";
+		String play_again;
 		int game_number = 0;
 		int game_selection = 0;
 		int players = 0;
@@ -31,11 +31,6 @@ public class Home_Page{
 		
 		do {
 			
-			if(play_again.equals("y"))
-			{
-				System.out.println("Let's Play another!");
-				System.out.println();
-			}
 			
 			System.out.println("Time for Game #"+(++game_number));
 			System.out.println();
@@ -86,14 +81,19 @@ public class Home_Page{
 			System.out.println();
 			
 			System.out.println("Would you like to play another game? (y or n)");
-			play_again = scan.nextLine();
+			play_again = scan.next();
 			
+			if(play_again.equals("y"))
+			{
+				System.out.println("Let's Play another!");
+				System.out.println();
+			}
 			
 		}while(play_again.equals("y"));
 		
 		//Calculate an overall winner with how many wins they had
 		
-		scan.close();
+		
 		
 	}
 
